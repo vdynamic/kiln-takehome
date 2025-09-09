@@ -1,0 +1,50 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: metallb
+  namespace: flux-system
+spec:
+  interval: 15m
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: metallb
+    namespace: flux-system
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: controller
+      namespace: metallb-system
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: speaker
+      namespace: metallb-system
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: metallb
+  namespace: flux-system
+spec:
+  interval: 15m
+  url: https://github.com/metallb/metallb.git
+  ref:
+    tag: v0.13.7
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: default-pool
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.168.122.200-192.168.122.250
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: default
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+    - default-pool

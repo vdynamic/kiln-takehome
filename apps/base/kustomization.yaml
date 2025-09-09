@@ -1,0 +1,23 @@
+# gitops/apps/base/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./podinfo/manifests.yaml
+  - ./monitoring/namespace.yaml
+  - ./monitoring/prometheus-repo.yaml
+  - ./monitoring/prometheus-release.yaml
+  - ./monitoring/grafana-repo.yaml
+  - ./monitoring/loki-release.yaml
+  - ./monitoring/tempo-release.yaml
+  - ./databases/postgres/namespace.yaml
+  - ./databases/postgres/bitnami-repo.yaml
+  - ./databases/postgres/postgres-release.yaml
+  - ./databases/redis/redis-release.yaml
+  - ./databases/mongodb/mongodb-release.yaml
+  - ./databases/mariadb/mariadb-release.yaml
+  - ./timeseries/timescale/namespace.yaml
+  - ./timeseries/timescale/timescale-repo.yaml
+  - ./timeseries/timescale/timescale-release.yaml
+  - ./events/kafka/namespace.yaml
+  - ./events/kafka/kafka-release.yaml
+  - ./events/rabbitmq/rabbitmq-release.yaml

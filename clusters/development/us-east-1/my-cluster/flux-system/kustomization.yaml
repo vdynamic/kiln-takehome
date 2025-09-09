@@ -1,0 +1,9 @@
+# This file is managed by Flux. Do not edit.
+# It will be created by the `flux bootstrap` command.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - gotk-components.yaml
+  - gotk-sync.yaml
+  - ../infrastructure-sync.yaml
+  - ../apps-sync.yaml

@@ -1,0 +1,9 @@
+# gitops/apps/base/timeseries/timescale/timescale-repo.yaml
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: timescale
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://charts.timescale.com/

@@ -1,0 +1,16 @@
+# gitops/apps/base/timeseries/timescale/timescale-release.yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: timescaledb
+  namespace: timeseries
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: timescaledb-single
+      sourceRef:
+        kind: HelmRepository
+        name: timescale
+        namespace: flux-system
+      version: "0.33.0"

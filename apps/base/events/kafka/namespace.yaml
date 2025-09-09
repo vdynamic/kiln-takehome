@@ -1,0 +1,5 @@
+# gitops/apps/base/events/kafka/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: events

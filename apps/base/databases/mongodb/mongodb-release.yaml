@@ -1,0 +1,16 @@
+# gitops/apps/base/databases/mongodb/mongodb-release.yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mongodb
+  namespace: databases
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: mongodb
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+      version: "13.6.2"

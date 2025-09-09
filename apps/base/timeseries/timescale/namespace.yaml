@@ -1,0 +1,5 @@
+# gitops/apps/base/timeseries/timescale/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: timeseries

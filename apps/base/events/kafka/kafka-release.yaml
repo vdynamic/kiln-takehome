@@ -1,0 +1,16 @@
+# gitops/apps/base/events/kafka/kafka-release.yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kafka
+  namespace: events
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: kafka
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+      version: "22.1.2"

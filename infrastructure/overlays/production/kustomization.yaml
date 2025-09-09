@@ -1,0 +1,5 @@
+# gitops/infrastructure/overlays/production/kustomization.yaml
+apiVersion: kkustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+  - ../../base

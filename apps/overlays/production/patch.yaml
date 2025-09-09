@@ -1,0 +1,7 @@
+# gitops/apps/overlays/production/patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podinfo
+spec:
+  replicas: 3
